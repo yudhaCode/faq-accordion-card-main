@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+:root {
+  --text-color: hsl(238, 29%, 16%);
+  --soft-red: hsl(14, 88%, 65%);
+
+  --soft-violet: hsl(273, 75%, 66%);
+  --soft-blue: hsl(240, 73%, 65%);
+
+  --very-dark-grayish-blue: hsl(237, 12%, 33%);
+  --dark-grayish-blue: hsl(240, 6%, 50%);
+
+  --light-grayish-blue: hsl(240, 5%, 91%);
+
+  --background-gradient: linear-gradient(
+    135deg,
+    var(--soft-violet),
+    var(--soft-blue)
+  );
+}
+/* css reset by https://www.joshwcomeau.com/css/custom-css-reset/ */
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+    2. Remove default margin
+  */
+* {
+  font-size: 12px;
+  margin: 0;
+}
+/*
+    Typographic tweaks!
+    3. Add accessible line-height
+    4. Improve text rendering
+  */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+    5. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+    6. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+    7. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+    8. Create a root stacking context
+  */
+#root,
+#__next {
+  isolation: isolate;
+}
+
+hr {
+  height: 0.2px;
+  border: none;
+  background-color: hsla(0, 8%, 67%, 0.206);
+}
+
+/* main styles */
+body {
+  background: var(--background-gradient);
+  min-height: 100vh;
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 12px;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* container */
+#container {
+  background-color: #fff;
+  max-width: 834px;
+  width: 100%;
+  border-radius: 1rem;
+  display: flex;
+  position: relative;
+  box-shadow: 1px 10px 20px 1px rgba(117, 93, 137, 0.75);
+  -webkit-box-shadow: 1px 10px 20px 1px rgba(117, 93, 137, 0.75);
+  -moz-box-shadow: 1px 10px 20px 1px rgba(117, 93, 137, 0.75);
+}
+
+#container .box {
+  position: absolute;
+  z-index: 999;
+  top: 154px;
+  left: -94px;
+}
+
+/* img section */
+
+#img-section {
+  background: url('images/bg-pattern-desktop.svg');
+  background-repeat: no-repeat;
+  background-size: 200%;
+  position: relative;
+  min-width: 400px;
+  overflow: hidden;
+  background-position-y: -248px;
+  background-position-x: -462px;
+}
+
+#img-section img {
+  position: absolute;
+  top: 54px;
+  left: -64px;
+}
+
+/* dropdown section*/
+#dropdown-section {
+  padding: 4rem 7.4rem 4rem 0;
+}
+
+#dropdown-section h2 {
+  font-size: 2.6rem;
+  margin-bottom: 2.4rem;
+}
+
+.faq {
+  margin-bottom: 20px;
+}
+
+.faq-question {
+  cursor: pointer;
+  font-size: 1.1rem;
+  min-width: 320px;
+  width: 100%;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.faq-question::after {
+  content: '\f078';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  position: absolute;
+  top: 8px;
+  right: 0;
+  transform: translateY(-50%);
+  color: var(--soft-red);
+}
+
+.faq.active .faq-question::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.faq.active .faq-answer {
+  display: block;
+}
+
+.faq-answer {
+  max-width: 320px;
+  display: none;
+}
+
+.faq-answer p {
+  padding-bottom: 1.4rem;
+}
+
+.faq.active .faq-answer {
+  display: block;
+}
+
+.faq.active .faq-question {
+  font-weight: bold;
+}
+
+/* attribution */
+.attribution {
+  text-align: center;
+  color: #fff;
+  margin-top: 3rem;
+}
+
+.attribution a {
+  color: var(--text-color);
+  font-weight: bold;
+}
+
+@media (max-width: 767px) {
+  #container {
+    flex-direction: column;
+    max-width: 88%;
+    border-radius: 2rem;
+    margin-top: 10rem;
+  }
+
+  /* img section */
+  .box {
+    display: none;
+  }
+
+  #img-section {
+    background: url('images/bg-pattern-mobile.svg');
+    background-repeat: no-repeat;
+    height: 116px;
+    background-position: 36% 50%;
+    overflow: visible;
+  }
+
+  #img-section img {
+    max-width: 250px;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-66%, -90%);
+  }
+
+  /* drop-down section */
+  #dropdown-section {
+    padding: 2rem 2rem;
+  }
+
+  #dropdown-section h2 {
+    text-align: center;
+  }
+
+  .faq-question {
+    cursor: pointer;
+    font-size: 1.1rem;
+    min-width: 260px;
+    width: 100%;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+}
